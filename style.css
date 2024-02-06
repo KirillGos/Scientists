@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px;
+    background-color: lightgoldenrodyellow;
+}
+.card-style-1 {
+     display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.button-class-1 {
+    width: 10vw;
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+#edit {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+input {
+    display: block;
+    margin-top: 5px;
+    padding: 2px;
+    border: 1px solid rgb(19, 192, 134); 
+    color: blue;
+    background-color: lightcyan;
+    border-radius: 3px;
+}
+input::placeholder {
+    color: rgb(118, 118, 118);
+}
+#card {
+    background-color: rgb(202, 239, 202);
+    padding: 10px;
+    border-radius: 15px;
+    min-height: 200px;
+    max-width: 300px;
+    font-size: calc(1vw + 10px);
+    display: grid;
+    border: 1px solid rgb(2, 2, 69);
+}
+#display-scientist {
+    display: grid;
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    align-self: center;
+    overflow: scroll;
+    max-height: 65vh;
+}
+.edit {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(77, 37, 253, 0.91);
+}
+.edit-card {
+    background-color: rgb(169, 255, 104);
+    min-width: 20vw;
+    min-height: 20vh;
+    align-items: center;
+    border-radius: 10px;
+}
+.hidden {
+    display: none !important;
+}
+.focus {
+    background-color: rgba(77, 37, 253, 0.6);
+}
+.scientists-from-country {
+    text-transform: capitalize;
+}
+#country-title {
+    text-align: center;
+    font-size: 3rem;
+}

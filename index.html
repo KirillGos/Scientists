@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        <div id="inputs-sec" class="card-style-1">
+            <h2>Add a Scientist</h2>
+            <div id="scientist">
+                <label for="scientist-name-input">Scientist Name: </label>
+                <input type="text" id="scientist-name-input">
+            </div>
+            <div id="scientist-work">
+                 <label for="scientist-work-input">Scientist Work: </label>
+                 <input type="text" id="scientist-work-input">
+            </div>
+            <div id="scientist-time">
+                 <label for="scientist-country-input">Scientist Country: </label>
+                 <input type="text" id="scientist-country-input">
+            </div>
+            <button id="submit-btn" class="button-class-1">Add</button>
+        </div>
+        <div id="search" class="card-style-1">
+            <h2>Search a Scientist</h2>
+            <div id="search-by-name">
+                <label for="search-by-name-input">Search by Name</label>
+                <input type="text" id="search-by-name-input">
+            </div>
+            <div id="search-by-country">
+                <label for="search-by-country-input">Search by Country</label>
+                <input type="text" id="search-by-country-input">
+            </div>
+            <button id="search-btn" class="button-class-1" data-status="inactive">Search</button>
+        </div>
+        <div id="edit">
+            <div id="edit-scientists" class="card-style-1">
+                <h2>Edit a Scientist</h2>
+                <div id="edit-delete">
+                    <button id="delete-btn">Click to Delete</button>
+                </div>
+                <div id="edit-update">
+                     <button id="edit-update">Click to Update</button>
+                </div>
+            </div>
+            <div id="edit-page-style" class="card-style-1">
+                <h2>Edit Page Style</h2>
+                <button id="hacker-theme">Hacker Theme</button>
+                <button id="dark-theme">Dark Theme</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="country-title"></div>
+    <div id="delete-scientist-menu" class="hidden edit">
+        <div id="delete-card" class="edit-card  card-style-1">
+            <label for="scientist-delete-input">Enter the name of a Scientist</label>
+             <input type="text" id="scientist-delete-input">
+            <button id="delete-scientist-btn" class="button-class-1">Delete</button>
+        </div>
+    </div>
+    <div id="update-scientist-menu" class="hidden edit">
+        <div id="update-card" class="edit-card  card-style-1">
+            <label for="scientist-update-input">Who do you want to update? enter a name</label>
+             <input type="text" id="scientist-update-input">
+             <label for=""></label>
+             <input type="text">
+            <button id="update-scientist-btn" class="button-class-1">Update</button>
+        </div>
+    </div>
+    <div id="display-scientist"></div> 
+    <script src="script.js"></script>
+</body>
+</html>
