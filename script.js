@@ -1,3 +1,4 @@
+(function () {
 const displayScientistSec = document.querySelector('#display-scientist');
 const scientistNameInput = document.querySelector('#scientist-name-input');
 const scientistWork = document.querySelector('#scientist-work-input');
@@ -9,13 +10,17 @@ const deleteBtn = document.querySelector('#delete-btn');
 const deleteScientistMenu = document.querySelector('#delete-scientist-menu');
 const deleteScientistBtn = document.querySelector('#delete-scientist-btn');
 const body = document.querySelector('body');
-const countryTitle = document.querySelector('#country-title')
+const searchTitle = document.querySelector('#search-title')
 const searchByNameInput = document.querySelector('#search-by-name-input');
 const searchByCountryInput = document.querySelector('#search-by-country-input');
 const updateInput = document.querySelector('#scientist-update-input');
 const openUpdateMenu = document.querySelector('#edit-update');
 const updateBtn = document.querySelector('#update-scientist-btn');
 const updateScientistMenu = document.querySelector('#update-scientist-menu');
+const scientistUpdateInput = document.querySelector('#scientist-update-index-input');
+const enterNewNameInput = document.querySelector('#enter-new-name-input');
+const enterNewWorkDesInput = document.querySelector('#enter-new-work-desc-input');
+const enterNewCountryInput = document.querySelector('#enter-new-country-input');
 
 const scientists = [
     { name: "Isaac Newton", work: "Classical Mechanics", country: "England" },
@@ -77,9 +82,11 @@ class Scientist {
         this.country = country;
     }
     get scientistDescription() {
-        return `${this.name} ${this.work} ${this.country}`
+        return `${this.name} ${this.work} ${this.country}`   
+
     }
 }
+
 function renderAddInfo() {
     const scientistNameText = scientistNameInput.value;
     const scientistWorkText = scientistWork.value;
@@ -113,18 +120,32 @@ function searchScientist() {
         let lookingForName = searchByNameInput.value.toLowerCase().trim();
         let lookingForCountry = searchByCountryInput.value.toLowerCase().trim();
 
+        searchByNameInput.classList.toggle('hidden')
+        searchByCountryInput.classList.toggle('hidden')
+
         const filtered = scientists.filter((object) => {
             return object.name.toLowerCase().includes(lookingForName) && object.country.toLowerCase().includes(lookingForCountry);
         });
-        if(lookingForCountry != "" && filtered.length > 0) {
-            let text = `<p>All Scientists From <span  class="scientists-from-country">${lookingForCountry}</span></p>`;
-            countryTitle.insertAdjacentHTML('beforeend', text);
+        if(lookingForName == "" && filtered.length > 0) {
+            let text = `<h1>All Scientists From <span  class="scientists-from-country">${lookingForCountry}</span></h1>`;
+            searchTitle.insertAdjacentHTML('beforeend', text);
+            displayScientist(filtered);
+        } else if (filtered.length > 0 && lookingForCountry == '') {
+            let text = `<h1>All Scientists with the name of ${lookingForName} </h1>`;
+            searchTitle.insertAdjacentHTML('beforeend', text);
+            displayScientist(filtered);
+        }else if (filtered.length === 0) {
+            displayScientistSec.innerHTML = '<h1>Nothing is found</h1>'
+        } else {
+            displayScientist(filtered);
+            let text = `<h1>${filtered[0].name} ${filtered[0].work} ${filtered[0].country}</h1>`
+            displayScientistSec.insertAdjacentHTML('afterbegin', text);
         }
-        displayScientist(filtered);
-
         searchByNameInput.value = '';
         searchByCountryInput.value = '';
     } else {
+        searchByNameInput.classList.toggle('hidden')
+        searchByCountryInput.classList.toggle('hidden')
         displayScientist();
         restartSearch()
     }
@@ -153,16 +174,34 @@ function deleteScientist() {
     scientistInput.value = '';
 }
 function restartSearch() {
-     countryTitle.innerHTML = "";
+     searchTitle.innerHTML = "";
      searchBtn.innerText = 'Search'
      searchBtn.dataset.status = 'inactive';    
      searchByNameInput.value = '';
      searchByCountryInput.value = '';
 }
+function updateScientist() {
+    let indexOfScientist = Number(scientistUpdateInput.value) - 1;
+    let newName = enterNewNameInput.value;
+    let newWorkDes = enterNewWorkDesInput.value;
+    let newCountry = enterNewCountryInput.value;
 
-openUpdateMenu.addEventListener('click', toggleUpdateMenu)
+    let newObject = new Scientist(newName, newWorkDes, newCountry)
+    scientists.splice(indexOfScientist, 1, newObject);
+    displayScientist();
+    toggleUpdateMenu();
+
+    enterNewCountryInput.value = '';
+    enterNewWorkDesInput.value = '';
+    scientistUpdateInput.value = '';
+    enterNewNameInput.value = '';
+}
+
+updateBtn.addEventListener('click', updateScientist);
+openUpdateMenu.addEventListener('click', toggleUpdateMenu);
 deleteScientistBtn.addEventListener('click', deleteScientist)
 deleteBtn.addEventListener('click', toggleDeleteScientistMenu);
 searchBtn.addEventListener('click', searchScientist);
-submitButton.addEventListener('click', renderAddInfo);
+submitButton.addEventListener('click', renderAddInfo);  
 displayScientist();
+})();
