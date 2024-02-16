@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="hide">
+        <hr>
+        <hr>
+    </div>
     <div id="root">
         <div id="inputs-sec" class="card-style-1">
             <h2>Add a Scientist</h2>
@@ -40,7 +44,7 @@
             <div id="edit-scientists" class="card-style-1">
                 <h2>Edit a Scientist</h2>
                 <div id="edit-delete">
-                    <button id="delete-btn">Click to Delete</button>
+                    <button id="enable-delete" data-status="not-active">Click to Delete</button>
                 </div>
                 <div id="edit-update">
                      <button id="edit-update">Click to Update</button>
@@ -55,13 +59,6 @@
         </div>
     </div>
     <div id="search-title"></div>
-    <div id="delete-scientist-menu" class="hidden edit">
-        <div id="delete-card" class="edit-card  card-style-1">
-            <label for="scientist-delete-input">Enter the name of a Scientist</label>
-             <input type="text" id="scientist-delete-input">
-            <button id="delete-scientist-btn" class="button-class-1">Delete</button>
-        </div>
-    </div>
     <div id="update-scientist-menu" class="hidden edit">
         <div id="update-card" class="edit-card  card-style-1">
              <label for="scientist-update-index-input">Who do you want to update? Enter the scientist list number</label>

@@ -1,26 +1,36 @@
-(function () {
 const displayScientistSec = document.querySelector('#display-scientist');
+const root = document.querySelector('#root');
+
+// add a person
 const scientistNameInput = document.querySelector('#scientist-name-input');
 const scientistWork = document.querySelector('#scientist-work-input');
 const scientistCountry = document.querySelector('#scientist-country-input');
-const root = document.querySelector('#root');
-const submitButton = document.querySelector('#submit-btn');
+const addPerson = document.querySelector('#submit-btn');
+
+// search section
 const searchBtn = document.querySelector('#search-btn');
-const deleteBtn = document.querySelector('#delete-btn');
-const deleteScientistMenu = document.querySelector('#delete-scientist-menu');
-const deleteScientistBtn = document.querySelector('#delete-scientist-btn');
-const body = document.querySelector('body');
 const searchTitle = document.querySelector('#search-title')
 const searchByNameInput = document.querySelector('#search-by-name-input');
 const searchByCountryInput = document.querySelector('#search-by-country-input');
-const updateInput = document.querySelector('#scientist-update-input');
+const searchByNameSec = document.querySelector('#search-by-name');
+const searchByCountrySec = document.querySelector('#search-by-country');
+
+//update section
 const openUpdateMenu = document.querySelector('#edit-update');
 const updateBtn = document.querySelector('#update-scientist-btn');
 const updateScientistMenu = document.querySelector('#update-scientist-menu');
+
+// update section inputs
 const scientistUpdateInput = document.querySelector('#scientist-update-index-input');
 const enterNewNameInput = document.querySelector('#enter-new-name-input');
 const enterNewWorkDesInput = document.querySelector('#enter-new-work-desc-input');
 const enterNewCountryInput = document.querySelector('#enter-new-country-input');
+
+// hide root menu button
+const hideBtn = document.querySelector('#hide');
+
+// enable delete
+const enableDelete = document.querySelector('#enable-delete');
 
 const scientists = [
     { name: "Isaac Newton", work: "Classical Mechanics", country: "England" },
@@ -82,7 +92,7 @@ class Scientist {
         this.country = country;
     }
     get scientistDescription() {
-        return `${this.name} ${this.work} ${this.country}`   
+        return `${this.name} ${this.work} ${this.country}`
 
     }
 }
@@ -101,6 +111,7 @@ function renderAddInfo() {
     restartSearch();
     displayScientist()
 }
+
 function displayScientist(array = scientists) {
     displayScientistSec.innerHTML = "";
     array.forEach((person) => {
@@ -113,73 +124,75 @@ function displayScientist(array = scientists) {
         displayScientistSec.insertAdjacentHTML('beforeend', cardTemplate);
     });
 }
+
 function searchScientist() {
-    if (searchBtn.dataset.status == 'inactive') {
-        searchBtn.dataset.status = 'active';
-        searchBtn.innerText = 'Show All'
-        let lookingForName = searchByNameInput.value.toLowerCase().trim();
-        let lookingForCountry = searchByCountryInput.value.toLowerCase().trim();
-
-        searchByNameInput.classList.toggle('hidden')
-        searchByCountryInput.classList.toggle('hidden')
-
-        const filtered = scientists.filter((object) => {
-            return object.name.toLowerCase().includes(lookingForName) && object.country.toLowerCase().includes(lookingForCountry);
-        });
-        if(lookingForName == "" && filtered.length > 0) {
-            let text = `<h1>All Scientists From <span  class="scientists-from-country">${lookingForCountry}</span></h1>`;
-            searchTitle.insertAdjacentHTML('beforeend', text);
-            displayScientist(filtered);
-        } else if (filtered.length > 0 && lookingForCountry == '') {
-            let text = `<h1>All Scientists with the name of ${lookingForName} </h1>`;
-            searchTitle.insertAdjacentHTML('beforeend', text);
-            displayScientist(filtered);
-        }else if (filtered.length === 0) {
-            displayScientistSec.innerHTML = '<h1>Nothing is found</h1>'
+    if (enableDelete.dataset.status === 'not-active') {
+        if (searchBtn.dataset.status == 'inactive') {
+            filter();
+            restartSearch();
         } else {
-            displayScientist(filtered);
-            let text = `<h1>${filtered[0].name} ${filtered[0].work} ${filtered[0].country}</h1>`
-            displayScientistSec.insertAdjacentHTML('afterbegin', text);
+            displayScientist();
+            restartSearch()
         }
-        searchByNameInput.value = '';
-        searchByCountryInput.value = '';
-    } else {
-        searchByNameInput.classList.toggle('hidden')
-        searchByCountryInput.classList.toggle('hidden')
-        displayScientist();
-        restartSearch()
+    }  else {
+        filter();
+        restartSearch();
+        deleteMode();
     }
 }
-function toggleDeleteScientistMenu() {
-    deleteScientistMenu.classList.toggle('hidden');
-    restartSearch();
+function filter() {
+    let lookingForName = searchByNameInput.value.toLowerCase().trim();
+    let lookingForCountry = searchByCountryInput.value.toLowerCase().trim();
+
+    const filtered = scientists.filter((object) => {
+        let compareName = lookingForName.split(' ')[0] ?
+            object.name.toLowerCase().split(' ')[0] === lookingForName.split(' ')[0] :
+            true;
+
+        let compareLastName = lookingForName.split(' ')[1] ?
+            object.name.toLowerCase().split(' ')[1] === lookingForName.split(' ')[1] :
+            true;
+
+        let compareCountry = object.country.toLowerCase().includes(lookingForCountry);
+        return compareCountry && compareName && compareLastName;
+    });
+    if (lookingForName == "" && filtered.length > 0 && filtered.length !== 1) {
+        let text = `<h1>All Scientists From <span  class="scientists-from-country">${lookingForCountry}</span></h1>`;
+        searchTitle.innerHTML = text;
+        displayScientist(filtered);
+    } else if (filtered.length > 0 && lookingForCountry == '' && filtered.length !== 1) {
+        let text = `<h1>All Scientists with the name of <span  class="scientists-from-country">${lookingForName}</span> </h1>`;
+        searchTitle.innerHTML = text;
+        displayScientist(filtered);
+    } else if (filtered.length == 1) {
+        let text = `<h1>ONE AND ONLY <br> ${filtered[0].name}</h1>`
+        searchTitle.innerHTML = text;
+        displayScientist(filtered);
+    }
+    if (filtered.length === 0) {
+        displayScientistSec.innerHTML = '<h1>No Results</h1>'
+    }
 }
 function toggleUpdateMenu() {
     updateScientistMenu.classList.toggle('hidden');
     restartSearch();
 }
-function deleteScientist() {
-    const scientistInput = document.querySelector('#scientist-delete-input');
-    const inputText = scientistInput.value.toLowerCase().trim();
 
-    scientists.forEach((object) => {
-        let lookingFor = object.name.toLowerCase();
-        if (lookingFor.includes(inputText) && !inputText == '') {
-            let index = scientists.indexOf(object);
-            scientists.splice(index, 1);
-        }
-    });
-    displayScientist();
-    toggleDeleteScientistMenu();
-    scientistInput.value = '';
-}
 function restartSearch() {
-     searchTitle.innerHTML = "";
-     searchBtn.innerText = 'Search'
-     searchBtn.dataset.status = 'inactive';    
-     searchByNameInput.value = '';
-     searchByCountryInput.value = '';
+    if (searchBtn.dataset.status == 'active') {
+        searchBtn.dataset.status = 'inactive';
+        searchTitle.innerHTML = "";
+        searchBtn.innerText = 'Search';
+    } else {
+        searchBtn.dataset.status = 'active';
+        searchBtn.innerText = 'Show All';
+    }
+    searchByNameSec.classList.toggle('hidden')
+    searchByCountrySec.classList.toggle('hidden')
+    searchByNameInput.value = '';
+    searchByCountryInput.value = '';
 }
+
 function updateScientist() {
     let indexOfScientist = Number(scientistUpdateInput.value) - 1;
     let newName = enterNewNameInput.value;
@@ -197,11 +210,47 @@ function updateScientist() {
     enterNewNameInput.value = '';
 }
 
+function hideMenu() {
+    root.classList.toggle('hidden');
+}
+
+function showDeleteBtns() {
+    if (searchBtn.dataset.status == 'active' && enableDelete.dataset.status === 'active') {
+        searchScientist()
+    }
+
+    if (enableDelete.dataset.status === 'not-active') {
+        enableDelete.textContent = 'Save';
+        enableDelete.dataset.status = 'active'
+        deleteMode();
+    } else {
+        enableDelete.textContent = 'Click to Delete';
+        displayScientist();
+        enableDelete.dataset.status = 'not-active';
+    }
+}
+
+function deleteMode() {
+    let allCards = document.querySelectorAll('#card');
+    for (let card of allCards) {
+        let deleteBtn = document.createElement('div');
+        deleteBtn.id = 'delete-button';
+        deleteBtn.innerText = 'X';
+
+        deleteBtn.addEventListener('click', () => {
+            let index = Array.from(allCards).indexOf(card);
+            scientists.splice([index], 1);
+            card.remove();
+        });
+        card.append(deleteBtn);
+        card.style.backgroundColor = 'lightblue'
+    }
+}
+
+enableDelete.addEventListener('click', showDeleteBtns)
+hideBtn.addEventListener('click', hideMenu);
 updateBtn.addEventListener('click', updateScientist);
 openUpdateMenu.addEventListener('click', toggleUpdateMenu);
-deleteScientistBtn.addEventListener('click', deleteScientist)
-deleteBtn.addEventListener('click', toggleDeleteScientistMenu);
 searchBtn.addEventListener('click', searchScientist);
-submitButton.addEventListener('click', renderAddInfo);  
+addPerson.addEventListener('click', renderAddInfo);
 displayScientist();
-})();
