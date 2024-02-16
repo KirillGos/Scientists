@@ -1,0 +1,252 @@
+[
+    {
+        "name": "Isaac Newton",
+        "work": "Classical Mechanics",
+        "country": "England"
+    },
+    {
+        "name": "Albert Einstein",
+        "work": "Theory of Relativity",
+        "country": "Germany"
+    },
+    {
+        "name": "Charles Darwin",
+        "work": "Evolutionary Biology",
+        "country": "England"
+    },
+    {
+        "name": "Galileo Galilei",
+        "work": "Astronomy and Physics",
+        "country": "Italy"
+    },
+    {
+        "name": "Nikola Tesla",
+        "work": "Electrical Engineering",
+        "country": "Serbia"
+    },
+    {
+        "name": "Leonardo da Vinci",
+        "work": "Art and Science",
+        "country": "Italy"
+    },
+    {
+        "name": "Stephen Hawking",
+        "work": "Theoretical Physics",
+        "country": "England"
+    },
+    {
+        "name": "Ada Lovelace",
+        "work": "Computer Programming",
+        "country": "England"
+    },
+    {
+        "name": "Max Planck",
+        "work": "Quantum Theory",
+        "country": "Germany"
+    },
+    {
+        "name": "Marie Curie",
+        "work": "Radioactivity",
+        "country": "Poland"
+    },
+    {
+        "name": "Niels Bohr",
+        "work": "Quantum Mechanics",
+        "country": "Denmark"
+    },
+    {
+        "name": "Louis Pasteur",
+        "work": "Microbiology",
+        "country": "France"
+    },
+    {
+        "name": "Rosalind Franklin",
+        "work": "DNA Structure",
+        "country": "England"
+    },
+    {
+        "name": "Johannes Kepler",
+        "work": "Astronomy",
+        "country": "Germany"
+    },
+    {
+        "name": "Srinivasa Ramanujan",
+        "work": "Mathematics",
+        "country": "India"
+    },
+    {
+        "name": "Enrico Fermi",
+        "work": "Nuclear Physics",
+        "country": "Italy"
+    },
+    {
+        "name": "James Clerk Maxwell",
+        "work": "Electromagnetism",
+        "country": "Scotland"
+    },
+    {
+        "name": "Alan Turing",
+        "work": "Computer Science",
+        "country": "England"
+    },
+    {
+        "name": "Erwin Schrödinger",
+        "work": "Quantum Mechanics",
+        "country": "Austria"
+    },
+    {
+        "name": "Dmitri Mendeleev",
+        "work": "Chemistry",
+        "country": "Russia"
+    },
+    {
+        "name": "Jane Goodall",
+        "work": "Primatology",
+        "country": "England"
+    },
+    {
+        "name": "Gregor Mendel",
+        "work": "Genetics",
+        "country": "Austria"
+    },
+    {
+        "name": "Richard Feynman",
+        "work": "Quantum Mechanics",
+        "country": "USA"
+    },
+    {
+        "name": "Emmy Noether",
+        "work": "Mathematics",
+        "country": "Germany"
+    },
+    {
+        "name": "Andrei Sakharov",
+        "work": "Nuclear Physics",
+        "country": "Russia"
+    },
+    {
+        "name": "Carl Sagan",
+        "work": "Astronomy",
+        "country": "USA"
+    },
+    {
+        "name": "Barbara McClintock",
+        "work": "Genetics",
+        "country": "USA"
+    },
+    {
+        "name": "Louis de Broglie",
+        "work": "Quantum Mechanics",
+        "country": "France"
+    },
+    {
+        "name": "Aristotle",
+        "work": "Philosophy and Science",
+        "country": "Greece"
+    },
+    {
+        "name": "Max Born",
+        "work": "Quantum Mechanics",
+        "country": "Germany"
+    },
+    {
+        "name": "Jonas Salk",
+        "work": "Medicine",
+        "country": "USA"
+    },
+    {
+        "name": "Paul Dirac",
+        "work": "Quantum Mechanics",
+        "country": "England"
+    },
+    {
+        "name": "Rachel Carson",
+        "work": "Ecology",
+        "country": "USA"
+    },
+    {
+        "name": "Linus Pauling",
+        "work": "Chemistry",
+        "country": "USA"
+    },
+    {
+        "name": "Robert Hooke",
+        "work": "Biology",
+        "country": "England"
+    },
+    {
+        "name": "Edwin Hubble",
+        "work": "Astronomy",
+        "country": "USA"
+    },
+    {
+        "name": "Antoine Lavoisier",
+        "work": "Chemistry",
+        "country": "France"
+    },
+    {
+        "name": "Werner Heisenberg",
+        "work": "Quantum Mechanics",
+        "country": "Germany"
+    },
+    {
+        "name": "Alexander Fleming",
+        "work": "Medicine",
+        "country": "Scotland"
+    },
+    {
+        "name": "Ada Yonath",
+        "work": "Crystallography",
+        "country": "Israel"
+    },
+    {
+        "name": "Geraldine Seydoux",
+        "work": "Developmental Biology",
+        "country": "USA"
+    },
+    {
+        "name": "John Bardeen",
+        "work": "Physics",
+        "country": "USA"
+    },
+    {
+        "name": "Yuri Gagarin",
+        "work": "Astronautics",
+        "country": "Russia"
+    },
+    {
+        "name": "Katherine Johnson",
+        "work": "Mathematics",
+        "country": "USA"
+    },
+    {
+        "name": "Grace Hopper",
+        "work": "Computer Science",
+        "country": "USA"
+    },
+    {
+        "name": "Vera Rubin",
+        "work": "Astronomy",
+        "country": "USA"
+    },
+    {
+        "name": "Claude Shannon",
+        "work": "Information Theory",
+        "country": "USA"
+    },
+    {
+        "name": "Carol Greider",
+        "work": "Molecular Biology",
+        "country": "USA"
+    },
+    {
+        "name": "Kip Thorne",
+        "work": "Theoretical Physics",
+        "country": "USA"
+    },
+    {
+        "name": "Margaret Hamilton",
+        "work": "Computer Science",
+        "country": "USA"
+    }
+]
