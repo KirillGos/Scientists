@@ -49,4 +49,5 @@ Dom.updateBtn.addEventListener('click', updateScientist);
 Dom.openUpdateMenu.addEventListener('click', toggleUpdateMenu);
 Dom.searchBtn.addEventListener('click', searchScientist);
 Dom.addPerson.addEventListener('click', renderAddInfo);
+
 displayScientist();

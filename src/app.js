@@ -9,7 +9,6 @@ export {
     renderAddInfo,
     displayScientist
 }
-
 class Scientist {
     constructor(name, work, country) {
         this.name = name;
@@ -34,18 +33,20 @@ function renderAddInfo() {
     scientists.push(newObj);
     displayScientist()
 }
-function displayScientist(array = scientists) {
+
+function displayScientist() {
     Dom.displayScientistSec.innerHTML = "";
-     array.forEach(person => {
+     scientists.forEach(person => {
         const cardTemplate = `
-        <div id="card" data-index="${array.indexOf(person)}">
+        <div id="card">
             <button id='delete-button' class="hidden">X</button>    
-            <h2 id="scientist-name-h2">${array.indexOf(person) + 1}. ${person.name}</h2>
+            <h2 id="scientist-name-h2">${scientists.indexOf(person) + 1}. ${person.name}</h2>
             <p id="scientist-work-p"><strong>Work</strong>: ${person.work}</p>
             <p id="scientist-country-p"><strong>Country</strong>: ${person.country}</p>
         </div>`;
         Dom.displayScientistSec.insertAdjacentHTML('beforeend', cardTemplate);
     });
+    updateIndex();
     deleteAction();
 };
 
@@ -53,12 +54,19 @@ function deleteAction() {
     document.querySelectorAll('#delete-button').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const currentIndex = +e.target.parentElement.dataset.index;
-            scientists.splice(currentIndex, 1);
+            scientists.splice(currentIndex, 1, null);
             e.target.parentElement.remove();
         });
     });
 }
-
+function updateIndex() {
+    const allCards = document.querySelectorAll('#card');
+    let count = 0;
+    allCards.forEach(card => {
+        card.dataset.index = count;
+        count++;
+    })
+}
 function searchScientist() {
     if (Dom.enableDelete.dataset.status === 'not-active') {
         if (Dom.searchBtn.dataset.status == 'inactive') {
@@ -155,9 +163,9 @@ function hideMenu() {
 }
 
 function showDeleteBtns() {
-    /* if (Dom.searchBtn.dataset.status == 'active' && Dom.enableDelete.dataset.status === 'active') {
-        // searchScientist()
-    } */
+    if (Dom.searchBtn.dataset.status == 'active' && Dom.enableDelete.dataset.status === 'active') {
+        searchScientist()
+    }
     if (Dom.enableDelete.dataset.status === 'not-active') {
         const allCards = document.querySelectorAll('#card');
         const delBtns = document.querySelectorAll('#delete-button');
@@ -170,9 +178,14 @@ function showDeleteBtns() {
         Dom.enableDelete.textContent = 'Save';
         Dom.enableDelete.dataset.status = 'active'
     } else {
+        for (let i = 0; i < scientists.length; i++) {
+            if (scientists[i] === null) {
+                scientists.splice(i, 1);
+                i--;
+            }
+        }
         Dom.enableDelete.textContent = 'Click to Delete';
         displayScientist();
         Dom.enableDelete.dataset.status = 'not-active';
     }
 }
-
