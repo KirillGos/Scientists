@@ -9,6 +9,7 @@ export {
     renderAddInfo,
     displayScientist
 }
+
 class Scientist {
     constructor(name, work, country) {
         this.name = name;
@@ -36,9 +37,9 @@ function renderAddInfo() {
 
 function displayScientist() {
     Dom.displayScientistSec.innerHTML = "";
-     scientists.forEach(person => {
+    scientists.forEach(person => {
         const cardTemplate = `
-        <div id="card">
+        <div class="${Dom.theme}-theme-cards card">
             <button id='delete-button' class="hidden">X</button>    
             <h2 id="scientist-name-h2">${scientists.indexOf(person) + 1}. ${person.name}</h2>
             <p id="scientist-work-p"><strong>Work</strong>: ${person.work}</p>
@@ -59,14 +60,16 @@ function deleteAction() {
         });
     });
 }
+
 function updateIndex() {
-    const allCards = document.querySelectorAll('#card');
+    const allCards = document.querySelectorAll('.card');
     let count = 0;
     allCards.forEach(card => {
         card.dataset.index = count;
         count++;
     })
 }
+
 function searchScientist() {
     if (Dom.enableDelete.dataset.status === 'not-active') {
         if (Dom.searchBtn.dataset.status == 'inactive') {
@@ -76,19 +79,26 @@ function searchScientist() {
             displayScientist();
             restartSearch()
         }
+    } else if (Dom.searchBtn.dataset.status == 'active') {
+        cleanArray();
+        displayScientist();
+        restartSearch();
+        Dom.enableDelete.dataset.status = 'not-active';
+        showDeleteBtns();
     } else {
         search();
-        restartSearch();
+        restartSearch()
     }
 }
+
 function search() {
     // get info from inputs
     let lookingForName = Dom.searchByNameInput.value.toLowerCase().trim();
     let lookingForCountry = Dom.searchByCountryInput.value.toLowerCase().trim();
 
     // create a filtered array
-    const allCards = Array.from(document.querySelectorAll('#card'));
-    allCards.map((object) => {
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach((object) => {
         let indexOfObject = object.dataset.index;
         let currentScientist = scientists[indexOfObject];
         let compareName = lookingForName.split(' ')[0] ?
@@ -104,21 +114,19 @@ function search() {
             object.remove();
         }
     });
-
-    // display search title according to the filtered array
-    /*  if (lookingForName == "") {
-         let text = `<h1>All Scientists From <span  class="scientists-from-country">${lookingForCountry}</span></h1>`;
-         Dom.searchTitle.innerHTML = text;
-     } else if (filtered.length > 0 && lookingForCountry == '' && filtered.length !== 1) {
-         let text = `<h1>All Scientists with the name of <span  class="scientists-from-country">${lookingForName}</span> </h1>`;
-         searchTitle.innerHTML = text;
-     } else if (filtered.length == 1) {
-         let text = `<h1>ONE AND ONLY <br> ${filtered[0].name}</h1>`
-         Dom.searchTitle.innerHTML = text;
-     }
-     if (filtered.length === 0) {
-         Dom.displayScientistSec.innerHTML = '<h1>No Results</h1>'
-     } */
+    const allCardsAfterFilter = document.querySelectorAll('.card');
+    // display search title according to the found results
+    let text;
+    if (lookingForName == "" && allCardsAfterFilter.length > 0) {
+        text = `<h1>All Scientists From <span class="capitalize">${lookingForCountry}</span></h1>`;
+    } else if (lookingForCountry == '' && allCardsAfterFilter.length === 1) {
+        text = `<h1>ONE AND ONLY <br> <storng class="capitalize">${lookingForName}</strong></h1>`;
+    } else if (allCardsAfterFilter.length === 0) {
+        text = `<h1>No results found</h1>`
+    } else {
+        text = `<h1>All Scientists with the name of <strong class="capitalize">${lookingForName}</strong></h1>`
+    }
+    Dom.searchTitle.insertAdjacentHTML('afterbegin', text);
 }
 
 function toggleUpdateMenu() {
@@ -167,7 +175,7 @@ function showDeleteBtns() {
         searchScientist()
     }
     if (Dom.enableDelete.dataset.status === 'not-active') {
-        const allCards = document.querySelectorAll('#card');
+        const allCards = document.querySelectorAll('.card');
         const delBtns = document.querySelectorAll('#delete-button');
         for (let card of allCards) {
             card.style.backgroundColor = 'lightblue'
@@ -178,14 +186,18 @@ function showDeleteBtns() {
         Dom.enableDelete.textContent = 'Save';
         Dom.enableDelete.dataset.status = 'active'
     } else {
-        for (let i = 0; i < scientists.length; i++) {
-            if (scientists[i] === null) {
-                scientists.splice(i, 1);
-                i--;
-            }
-        }
+        cleanArray()
         Dom.enableDelete.textContent = 'Click to Delete';
         displayScientist();
         Dom.enableDelete.dataset.status = 'not-active';
+    }
+}
+
+function cleanArray() {
+    for (let i = 0; i < scientists.length; i++) {
+        if (scientists[i] === null) {
+            scientists.splice(i, 1);
+            i--;
+        }
     }
 }

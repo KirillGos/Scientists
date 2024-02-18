@@ -4,6 +4,9 @@
 }
 html {
     height: 100%;
+    font-family:  'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: rgb(37, 36, 36)
 }
 body {
     display: flex;
@@ -15,10 +18,10 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 15px;
-    background-color: rgb(201, 236, 223);
+    background-color: rgb(156, 230, 250);
 }
 .card-style-1 {
-     display: flex;
+    display: flex;
     gap: 15px;
     flex-direction: column;
     padding: 10px;
@@ -40,8 +43,9 @@ body {
 input {
     display: block;
     margin-top: 5px;
+    font-size: 20px;
     padding: 2px;
-    border: 1px solid rgb(19, 192, 134); 
+    border: 1px solid rgb(157, 201, 186); 
     color: blue;
     background-color: lightcyan;
     border-radius: 3px;
@@ -49,15 +53,15 @@ input {
 input::placeholder {
     color: rgb(118, 118, 118);
 }
-#card {
-    background-color: rgb(202, 239, 202);
+.card {
+    background-color: rgb(137, 253, 234);
     padding: 10px;
     border-radius: 15px;
-    min-height: 200px;
+    min-height: 400px;
     max-width: 300px;
     font-size: calc(1vw + 7px);
     display: grid;
-    border: 1px solid rgb(2, 2, 69);
+    border: 1.6px solid rgb(3, 3, 41);
 }
 #card:hover {
     box-shadow: 1px 3px 1px 
@@ -65,11 +69,11 @@ input::placeholder {
 #display-scientist {
     display: grid;
     margin-top: 15px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
-    overflow-y: scroll;
-    align-self: center;
+    align-self: center; 
 }
+
 .edit {
     position: fixed;
     height: 100%;
@@ -77,10 +81,10 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(77, 37, 253, 0.91);
+    background-color: rgba(95, 190, 207, 0.92);
 }
 .edit-card {
-    background-color: rgb(169, 255, 104);
+    background-color: rgb(23, 212, 226);
     min-width: 20vw;
     min-height: 20vh;
     align-items: center;
@@ -92,19 +96,18 @@ input::placeholder {
 .focus {
     background-color: rgba(77, 37, 253, 0.6);
 }
-.scientists-from-country {
-    text-transform: capitalize;
-}
+
 #country-title {
     text-align: center;
     font-size: 3rem;
+    color: white;
 }
 #hide {
     position: fixed;
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    background-color: rgba(198, 198, 255, 0.9);
+    background-color: rgba(41, 41, 226, 0.9);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,13 +117,16 @@ input::placeholder {
     top: 15px;
     left: 15px;
 }
+#hide:active {
+    background-color: rgba(142, 142, 246, 0.4);
+}
 hr {
     width: 100%;
     height: 3px;
     margin: 0;
     padding: 0;
     border: none;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 #inputs-sec, #search {
     justify-self: center ;
@@ -143,4 +149,42 @@ hr {
 }
 #delete-button:hover {
  box-shadow: 1px 3px 2px black;   
+}
+
+/* Themes */
+
+.dark-theme-body {
+    background-color: black !important;
+    color: rgb(18, 172, 18) !important;
+}
+
+.dark-theme-root {
+    background-color: rgb(34, 34, 34) !important;
+    color: rgb(183, 178, 178) !important;
+}
+
+.dark-theme-cards {
+    background-color: rgb(72, 73, 76) !important;
+    color: rgb(187, 188, 190) !important;
+}
+
+.input-dark-theme {
+    background-color: rgb(55, 53, 53);
+    color: white;
+}
+
+.dark-theme-update-menu {
+    background-color: rgba(73, 73, 73, 0.8);
+}
+.dark-theme-update-card {
+    color: white;
+    background-color: rgb(29, 43, 43);
+}
+
+.dark-theme-hide {
+    background-color: rgb(52, 1, 128) !important;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
