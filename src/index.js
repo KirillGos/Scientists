@@ -21,6 +21,8 @@ export const Dom = {
     scientistWork: document.querySelector('#scientist-work-input'),
     scientistCountry: document.querySelector('#scientist-country-input'),
     addPerson: document.querySelector('#submit-btn'),
+    scientistDescriptionTextarea : document.querySelector('#scientist-description-textarea'),
+    scientistImageInput: document.querySelector('#scientist-image-input'),
 
     // search section
     searchBtn: document.querySelector('#search-btn'),

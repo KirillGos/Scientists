@@ -1,252 +1,135 @@
 [
-    {
-        "name": "Isaac Newton",
-        "work": "Classical Mechanics",
-        "country": "England"
-    },
-    {
-        "name": "Albert Einstein",
-        "work": "Theory of Relativity",
-        "country": "Germany"
-    },
-    {
-        "name": "Charles Darwin",
-        "work": "Evolutionary Biology",
-        "country": "England"
-    },
-    {
-        "name": "Galileo Galilei",
-        "work": "Astronomy and Physics",
-        "country": "Italy"
-    },
-    {
-        "name": "Nikola Tesla",
-        "work": "Electrical Engineering",
-        "country": "Serbia"
-    },
-    {
-        "name": "Leonardo da Vinci",
-        "work": "Art and Science",
-        "country": "Italy"
-    },
-    {
-        "name": "Stephen Hawking",
-        "work": "Theoretical Physics",
-        "country": "England"
-    },
-    {
-        "name": "Ada Lovelace",
-        "work": "Computer Programming",
-        "country": "England"
-    },
-    {
-        "name": "Max Planck",
-        "work": "Quantum Theory",
-        "country": "Germany"
-    },
-    {
-        "name": "Marie Curie",
-        "work": "Radioactivity",
-        "country": "Poland"
-    },
-    {
-        "name": "Niels Bohr",
-        "work": "Quantum Mechanics",
-        "country": "Denmark"
-    },
-    {
-        "name": "Louis Pasteur",
-        "work": "Microbiology",
-        "country": "France"
-    },
-    {
-        "name": "Rosalind Franklin",
-        "work": "DNA Structure",
-        "country": "England"
-    },
-    {
-        "name": "Johannes Kepler",
-        "work": "Astronomy",
-        "country": "Germany"
-    },
-    {
-        "name": "Srinivasa Ramanujan",
-        "work": "Mathematics",
-        "country": "India"
-    },
-    {
-        "name": "Enrico Fermi",
-        "work": "Nuclear Physics",
-        "country": "Italy"
-    },
-    {
-        "name": "James Clerk Maxwell",
-        "work": "Electromagnetism",
-        "country": "Scotland"
-    },
-    {
-        "name": "Alan Turing",
-        "work": "Computer Science",
-        "country": "England"
-    },
-    {
-        "name": "Erwin Schrödinger",
-        "work": "Quantum Mechanics",
-        "country": "Austria"
-    },
-    {
-        "name": "Dmitri Mendeleev",
-        "work": "Chemistry",
-        "country": "Russia"
-    },
-    {
-        "name": "Jane Goodall",
-        "work": "Primatology",
-        "country": "England"
-    },
-    {
-        "name": "Gregor Mendel",
-        "work": "Genetics",
-        "country": "Austria"
-    },
-    {
-        "name": "Richard Feynman",
-        "work": "Quantum Mechanics",
-        "country": "USA"
-    },
-    {
-        "name": "Emmy Noether",
-        "work": "Mathematics",
-        "country": "Germany"
-    },
-    {
-        "name": "Andrei Sakharov",
-        "work": "Nuclear Physics",
-        "country": "Russia"
-    },
-    {
-        "name": "Carl Sagan",
-        "work": "Astronomy",
-        "country": "USA"
-    },
-    {
-        "name": "Barbara McClintock",
-        "work": "Genetics",
-        "country": "USA"
-    },
-    {
-        "name": "Louis de Broglie",
-        "work": "Quantum Mechanics",
-        "country": "France"
-    },
-    {
-        "name": "Aristotle",
-        "work": "Philosophy and Science",
-        "country": "Greece"
-    },
-    {
-        "name": "Max Born",
-        "work": "Quantum Mechanics",
-        "country": "Germany"
-    },
-    {
-        "name": "Jonas Salk",
-        "work": "Medicine",
-        "country": "USA"
-    },
-    {
-        "name": "Paul Dirac",
-        "work": "Quantum Mechanics",
-        "country": "England"
-    },
-    {
-        "name": "Rachel Carson",
-        "work": "Ecology",
-        "country": "USA"
-    },
-    {
-        "name": "Linus Pauling",
-        "work": "Chemistry",
-        "country": "USA"
-    },
-    {
-        "name": "Robert Hooke",
-        "work": "Biology",
-        "country": "England"
-    },
-    {
-        "name": "Edwin Hubble",
-        "work": "Astronomy",
-        "country": "USA"
-    },
-    {
-        "name": "Antoine Lavoisier",
-        "work": "Chemistry",
-        "country": "France"
-    },
-    {
-        "name": "Werner Heisenberg",
-        "work": "Quantum Mechanics",
-        "country": "Germany"
-    },
-    {
-        "name": "Alexander Fleming",
-        "work": "Medicine",
-        "country": "Scotland"
-    },
-    {
-        "name": "Ada Yonath",
-        "work": "Crystallography",
-        "country": "Israel"
-    },
-    {
-        "name": "Geraldine Seydoux",
-        "work": "Developmental Biology",
-        "country": "USA"
-    },
-    {
-        "name": "John Bardeen",
-        "work": "Physics",
-        "country": "USA"
-    },
-    {
-        "name": "Yuri Gagarin",
-        "work": "Astronautics",
-        "country": "Russia"
-    },
-    {
-        "name": "Katherine Johnson",
-        "work": "Mathematics",
-        "country": "USA"
-    },
-    {
-        "name": "Grace Hopper",
-        "work": "Computer Science",
-        "country": "USA"
-    },
-    {
-        "name": "Vera Rubin",
-        "work": "Astronomy",
-        "country": "USA"
-    },
-    {
-        "name": "Claude Shannon",
-        "work": "Information Theory",
-        "country": "USA"
-    },
-    {
-        "name": "Carol Greider",
-        "work": "Molecular Biology",
-        "country": "USA"
-    },
-    {
-        "name": "Kip Thorne",
-        "work": "Theoretical Physics",
-        "country": "USA"
-    },
-    {
-        "name": "Margaret Hamilton",
-        "work": "Computer Science",
-        "country": "USA"
-    }
+  {
+    "name": "Albert Einstein",
+    "country": "Germany",
+    "work": "Theory of Relativity",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+    "description": "Albert Einstein was a theoretical physicist who developed the theory of relativity, one of the two pillars of modern physics."
+  },
+  {
+    "name": "Marie Curie",
+    "country": "Poland",
+    "work": "Radioactivity",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/220px-Marie_Curie_c._1920s.jpg",
+    "description": "Marie Curie was a physicist and chemist known for her pioneering research on radioactivity. She was the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two different sciences."
+  },
+  {
+    "name": "Isaac Newton",
+    "country": "England",
+    "work": "Laws of Motion and Gravitation",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg",
+    "description": "Isaac Newton was an English mathematician, physicist, and astronomer whose laws of motion and gravitation laid the foundation for classical mechanics."
+  },
+  {
+    "name": "Charles Darwin",
+    "country": "England",
+    "work": "Theory of Evolution",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Charles_Darwin_seated_crop.jpg",
+    "description": "Charles Darwin was a naturalist known for his theory of evolution by natural selection, providing a unifying explanation for the diversity of life on Earth."
+  },
+  {
+    "name": "Nikola Tesla",
+    "country": "Serbia",
+    "work": "Alternating Current",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/N.Tesla.JPG",
+    "description": "Nikola Tesla was an inventor and electrical engineer known for his contributions to the development of alternating current (AC) electrical systems."
+  },
+  {
+    "name": "Leonardo da Vinci",
+    "country": "Italy",
+    "work": "Polymath",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Francesco_Melzi_-_Portrait_of_Leonardo.png/220px-Francesco_Melzi_-_Portrait_of_Leonardo.png",
+    "description": "Leonardo da Vinci was a Renaissance polymath celebrated for his contributions to various fields, including science, art, engineering, and anatomy."
+  },
+  {
+    "name": "Galileo Galilei",
+    "country": "Italy",
+    "work": "Astronomy",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Galileo_Galilei_%281564-1642%29_RMG_BHC2700.tiff/lossy-page1-220px-Galileo_Galilei_%281564-1642%29_RMG_BHC2700.tiff.jpg",
+    "description": "Galileo Galilei was an astronomer and physicist known as the father of observational astronomy and the modern scientific method."
+  },
+  {
+    "name": "Alan Turing",
+    "country": "England",
+    "work": "Computer Science",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Alan_Turing_%281912-1954%29_in_1936_at_Princeton_University.jpg/220px-Alan_Turing_%281912-1954%29_in_1936_at_Princeton_University.jpg",
+    "description": "Alan Turing was a mathematician and computer scientist known for his work in cryptography and his role in breaking the German Enigma code during World War II."
+  },
+  {
+    "name": "Louis Pasteur",
+    "country": "France",
+    "work": "Microbiology",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg/220px-Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg",
+    "description": "Louis Pasteur was a microbiologist and chemist known for his discoveries of the principles of vaccination, microbial fermentation, and pasteurization."
+  },
+  {
+    "name": "Max Planck",
+    "country": "Germany",
+    "work": "Quantum Theory",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Max_Planck_by_Hugo_Erfurth_1938cr.jpg/220px-Max_Planck_by_Hugo_Erfurth_1938cr.jpg",
+    "description": "Max Planck was a physicist recognized for his groundbreaking work in quantum theory, introducing the concept of quantization of energy."
+  },
+  {
+    "name": "Rosalind Franklin",
+    "country": "England",
+    "work": "DNA Structure",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Rosalind_Franklin_%281920-1958%29.jpg/220px-Rosalind_Franklin_%281920-1958%29.jpg",
+    "description": "Rosalind Franklin was a chemist whose X-ray diffraction images of DNA were critical to the discovery of its double helix structure."
+  },
+  {
+    "name": "Michael Faraday",
+    "country": "England",
+    "work": "Electromagnetism",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Michael_Faraday_sitting_crop.jpg/220px-Michael_Faraday_sitting_crop.jpg",
+    "description": "Michael Faraday was a physicist and chemist known for his experiments in electromagnetism, leading to the discovery of electromagnetic induction and diamagnetism."
+  },
+  {
+    "name": "Rachel Carson",
+    "country": "United States",
+    "work": "Environmentalism",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Rachel-Carson.jpg/220px-Rachel-Carson.jpg",
+    "description": "Rachel Carson was a marine biologist and conservationist whose book 'Silent Spring' catalyzed the environmental movement and led to increased awareness of the dangers of pesticides."
+  },
+  {
+    "name": "Sigmund Freud",
+    "country": "Austria",
+    "work": "Psychoanalysis",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg/220px-Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg",
+    "description": "Sigmund Freud was a neurologist and founder of psychoanalysis, known for his theories on the unconscious mind and the mechanisms of repression."
+  },
+  {
+    "name": "Erwin Schrödinger",
+    "country": "Austria",
+    "work": "Quantum Mechanics",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg/220px-Erwin_Schr%C3%B6dinger_%281933%29.jpg",
+    "description": "Erwin Schrödinger was a physicist renowned for his contributions to quantum mechanics, notably the Schrödinger equation and the concept of Schrödinger's cat."
+  },
+  {
+    "name": "Jane Goodall",
+    "country": "England",
+    "work": "Primatology",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Jane-goodall.jpg/220px-Jane-goodall.jpg",
+    "description": "Jane Goodall is a primatologist and conservationist known for her groundbreaking studies of chimpanzees in Tanzania's Gombe Stream National Park."
+  },
+  {
+    "name": "Richard Feynman",
+    "country": "United States",
+    "work": "Quantum Electrodynamics",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/42/Richard_Feynman_Nobel.jpg",
+    "description": "Richard Feynman was a theoretical physicist known for his work in quantum electrodynamics and his charismatic approach to teaching physics."
+  },
+  {
+    "name": "Carl Sagan",
+    "country": "United States",
+    "work": "Astrophysics",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Carl_Sagan_Planetary_Society_cropped.png/220px-Carl_Sagan_Planetary_Society_cropped.png",
+    "description": "Carl Sagan was an astronomer, cosmologist, and science communicator known for popularizing science, particularly through his television series 'Cosmos.'"
+  },
+  {
+    "name": "Barbara McClintock",
+    "country": "United States",
+    "work": "Genetics",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/McClintock.jpg/220px-McClintock.jpg",
+    "description": "Barbara McClintock was a geneticist known for her discovery of mobile genetic elements, or 'jumping genes,' which revolutionized the understanding of genetic regulation."
+  }
 ]

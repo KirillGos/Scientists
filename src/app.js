@@ -7,14 +7,16 @@ export {
     toggleUpdateMenu,
     searchScientist,
     renderAddInfo,
-    displayScientist
+    displayScientist,
 }
 
 class Scientist {
-    constructor(name, work, country) {
+    constructor(name, work, country, description, image) {
         this.name = name;
         this.work = work;
         this.country = country;
+        this.description = description;
+        this.image =  image;
     }
     get scientistDescription() {
         return `${this.name} ${this.work} ${this.country}`
@@ -25,12 +27,17 @@ function renderAddInfo() {
     const scientistNameText = Dom.scientistNameInput.value;
     const scientistWorkText = Dom.scientistWork.value;
     const scientistCountryText = Dom.scientistCountry.value;
+    const scientistDiscription = Dom.scientistDescriptionTextarea.value;
+    const scientistImage = Dom.scientistImageInput.value;
 
-    Dom.scientistNameInput.value = '';
-    Dom.scientistWork.value = '';
+    
+    Dom.scientistImageInput.value = '';
+    Dom.scientistDescriptionTextarea.value = '';
     Dom.scientistCountry.value = '';
+    Dom.scientistWork.value = '';
+    Dom.scientistNameInput.value  = '';
 
-    const newObj = new Scientist(scientistNameText, scientistWorkText, scientistCountryText);
+    const newObj = new Scientist(scientistNameText, scientistWorkText, scientistCountryText, scientistDiscription, scientistImage);
     scientists.push(newObj);
     displayScientist()
 }
@@ -40,13 +47,23 @@ function displayScientist() {
     scientists.forEach(person => {
         const cardTemplate = `
         <div class="${Dom.theme}-theme-cards card">
-            <button id='delete-button' class="hidden">X</button>    
-            <h2 id="scientist-name-h2">${scientists.indexOf(person) + 1}. ${person.name}</h2>
-            <p id="scientist-work-p"><strong>Work</strong>: ${person.work}</p>
-            <p id="scientist-country-p"><strong>Country</strong>: ${person.country}</p>
+         <div class="front-side">
+             <button id='delete-button' class="hidden">X</button>    
+             <div class="card-title-sec">
+                <h3 id="scientist-name-h2">${scientists.indexOf(person) + 1}. ${person.name}</h3>
+                <img src="${person.image}">
+             </div>
+             <p id="scientist-work-p"><strong>Work</strong>: ${person.work}</p>
+             <p id="scientist-country-p"><strong>Country</strong>: ${person.country}</p>
+        </div>
+            <div class="back-side">
+                <h3>Biography:</h3>
+                <p>${person.description}</p>
+            </div>
         </div>`;
         Dom.displayScientistSec.insertAdjacentHTML('beforeend', cardTemplate);
     });
+    clickCard();
     updateIndex();
     deleteAction();
 };
@@ -54,9 +71,10 @@ function displayScientist() {
 function deleteAction() {
     document.querySelectorAll('#delete-button').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const currentIndex = +e.target.parentElement.dataset.index;
+            const currentIndex = +e.target.parentElement.parentElement.dataset.index;
             scientists.splice(currentIndex, 1, null);
-            e.target.parentElement.remove();
+            e.target.parentElement.parentElement.remove();
+            console.log(scientists);
         });
     });
 }
@@ -82,8 +100,8 @@ function searchScientist() {
     } else if (Dom.searchBtn.dataset.status == 'active') {
         cleanArray();
         displayScientist();
-        restartSearch();
-        Dom.enableDelete.dataset.status = 'not-active';
+        restartSearch(); 
+       Dom.enableDelete.dataset.status = 'not-active';
         showDeleteBtns();
     } else {
         search();
@@ -171,6 +189,7 @@ function hideMenu() {
 }
 
 function showDeleteBtns() {
+    displayFrontSide();
     if (Dom.searchBtn.dataset.status == 'active' && Dom.enableDelete.dataset.status === 'active') {
         searchScientist()
     }
@@ -200,4 +219,21 @@ function cleanArray() {
             i--;
         }
     }
+}
+
+// click card event
+function clickCard() {
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            card.classList.toggle('turn-back')
+        })
+    })
+}
+
+function displayFrontSide() {
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.classList.remove('turn-back')
+    })
 }
